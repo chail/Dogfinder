@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+    <style type="text/css">
+        .title{
+            text-align:center;
+            font-family:arial;
+        }
+    </style>
+</head>
+<% include components/header %>
+<body  style= "background-color:white;background-image:url(/pawprints.jpg);">
+    <h1 class="title">
+            Find Your Dream Dog 
+    </h1>
+
+    <form action="/quiz" method="get">       
+        <input type='submit' style="margin:auto;display:block" value='Find the Best Dog Breeds for You'/>  
+    </form> 
+
+    <form action="/inputzipcode" method="get">
+        <input type='submit' style=";margin:auto;display:block" value='Find Pets near a Zipcode'/>
+    </form>   
+
+    <form action="/twitterfeed" method="get">
+        <input type='submit' style=";margin:auto;display:block" value='See what your life with a puppy could be like!'/>
+    </form> 
+<% include components/footer %>
+</body>
+</html>

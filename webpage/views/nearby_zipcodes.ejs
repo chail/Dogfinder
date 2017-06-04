@@ -1,0 +1,18 @@
+<!-- views/quiz.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div>
+        <%= query %> </br>
+    </div>
+
+    <div>
+        <% rows.forEach((row) => {%>
+            <%= row.zipcode %>  <%= row.dist %> </br>
+        <% }) %>
+    </div> 
+</body>
+
+</html>

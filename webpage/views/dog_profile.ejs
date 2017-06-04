@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#save-dog").click(function(e) {
+                    var dogId = '<%=pet[0].idnum%>';
+                    e.preventDefault();
+                    $.post('/adddogid', {dogId: dogId}, function(data) {})
+                        .fail(function(xhr) {
+                            // handle error
+                            var response = JSON.parse(xhr.responseText);
+                            var err = response.error;
+                        });
+                });
+
+                $("#delete-dog").click(function(e) {
+                    var dogId = '<%=pet[0].idnum%>';
+                    e.preventDefault();
+                    $.post('/deldogid', {dogId: dogId}, function(data) {})
+                        .fail(function(xhr) {
+                            // handle error
+                            var response = JSON.parse(xhr.responseText);
+                            var err = response.error;
+                        });
+                });
+            });
+        </script>
+    </head>
+    <% include components/header.ejs %>
+    <body  style= "background-color:white;background-image:url(/pawprints.jpg);">
+    <h1 align="center"><%= pet[0].name %></h1>
+    <div align="center">
+        <img src="<%=pet[0].photos.values[0]%>" alt = "HELLO">
+    </div>
+    <div style="margin-bottom:40px" align="center", width=75% />
+    <p><%=pet[0].desc%></p>
+    <p>Breed: <%=pet[0].breeds.values%> </p>
+    <p>Age: <%=pet[0].age%></p>
+    <p>Location: <%=pet[0].city%>, <%=pet[0].state%>, <%=pet[0].zipcode%></p>
+    <p>Contact Info: <%=pet[0].email%>, <%=pet[0].phone%> <%=pet[0].address%></p>
+    <input type ="button" id = "save-dog" value="Save Dog"/>
+    <input type ="button" id = "delete-dog" value="Delete Dog"/>
+    </div>
+
+    </body>
+    <% include components/footer %>
+
+</html>

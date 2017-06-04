@@ -1,0 +1,36 @@
+Image sources:
+pawprints: http://www.publicdomainpictures.net/view-image.php?image=170050&picture=dog-footprint
+dogs: http://www.fitdogsportsclub.com/wp/giving-fitdog/
+apartment: https://upload.wikimedia.org/wikipedia/commons/9/95/1St_Leonards%2C_New_South_wales.jpg
+house: http://clv.h-cdn.co/assets/15/14/768x512/gallery-1427911465-country-listings-california-0515.jpg
+
+run: http://www.offroadpaws.com/blog/wp-content/uploads/2017/01/womantrailrunningwithdog.jpg
+fetch: https://www.kimballstock.com/pix/DOG/18/DOG-18-NR0097-01P.JPG
+relax: http://dogtrainingblogger.com/how-to-keep-your-dog-from-getting-on-the-sofa.html
+family: http://www.ba-bamail.com/content.aspx?emailid=21422
+anyone: http://www.earthporm.com/pool-pawty-dog-daycare-center-looks-like/
+alone: https://s-media-cache-ak0.pinimg.com/originals/de/7e/c7/de7ec79b0a344be4fade6276e92cbef9.jpg
+cold: http://www.zastavki.com/pictures/originals/2013/Animals___Dogs_Bernese_Mountain_Dog_yawning_on_a_background_of_mountains_049900_.jpg
+hot: https://thumbs.dreamstime.com/x/white-dog-desert-16805134.jpg
+lots of dogs: http://3milliondogs.com/blog-assets-two/2015/04/LotsofPuppies31.jpg
+otherPets: http://www.woodsmall.com/cat-bird.jpg
+noPets: https://diamondmikewatson.wordpress.com/2013/01/05/apathy/
+trainable: http://pets.iloveindia.com/dogs/pics/dog-training-tip.jpg
+untrainable:http://ghk.h-cdn.co/assets/cm/15/11/54ff017cb7703-ghk-dog-digging-hole-xl.jpg
+smart: http://www.cbsnews.com/news/is-your-dog-a-genius-putting-fido-to-the-test/
+notSmart: https://c1.staticflickr.com/6/5097/5389182998_ab9e539fdb_b.jpg
+middle_1: http://www.news9.com/category/29878/pets
+
+baby: https://s-media-cache-ak0.pinimg.com/originals/67/25/b7/6725b78443b6ba72f5f630a8f4b0ded0.jpg
+young: http://dogbreedersguide.com/border-collie-australian-shepherd-mix-young-dog-image/
+adult: https://www.dogtrainingcoach.ca/wp-content/uploads/2015/11/adult-dog.jpg
+old: http://www.zliving.com/lifestyle/pets/why-older-dogs-are-great-pets
+anyAge: http://www.thedogtrainingsecret.com/blog/wp-content/uploads/2013/12/Depositphotos_2078358_s.jpg
+
+anySize: anySize: https://www.pinterest.com/brin6997/great-danes-3/
+small: https://www.pinterest.com/pin/123708320985879487/
+
+
+female: https://www.chelseadogs.com/blog/wp-content/uploads/2014/07/DH-Rolled-Collar-Pink.png
+male: http://www.punkhollowpetsupplies.com/weaver-prism-classic-dbl-ply-nylon-dog-collar-3-4-wide/
+anyGender: http://www.designer.collars-4-dogs.com/bookie-belle/ribbon-suede-dog-collar-pink.html

@@ -1,0 +1,60 @@
+<!-- views/quiz.ejs -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+    </head>
+    <% include components/header.ejs %>
+    <body  style= "background-color:white;background-image:url(/pawprints.jpg);">
+    <div>
+        <h1 align="center"> Best Breeds for You</h1>
+        <table align="center">
+            <tr>
+                <td><b>Breed</b></td>
+                <td><b>Compatibility</b></td>
+        <% rows.forEach((row) => {%>
+            <tr>
+                <td><%= row.breed %></td>
+                <td> <%= row.score %></td>
+            </tr>
+        <% }) %>
+        </table>
+    </div> 
+    <div>
+        <h1 align="center">Nearby Dogs for Adoption</h1>
+        <table align ="center">
+            <% if (pets.length == 0) { %>
+                <h3 align="center"> No nearby pets found! </h3>
+            <% } else { %>  
+                <% pets.forEach((dog) => { %>
+                    <tr align="center">
+                    <td>
+                    <% if (dog.photos) { %>            
+                    <img width=50, height=auto, src="<%=dog.photos.values[0]%>" alt = "HELLO">
+                    <% } %>
+                    </td>
+                    <td>
+                        <a href="dogprofiles/<%=dog.idnum%>"><%= dog.name%></a>
+                    </td>
+                    <td> <%=dog.breeds.values%></td> 
+                    <td>
+                        <%=dog.city%>, <%=dog.state%>, 
+                    </td>
+                    <td>
+                        <%=dog.zipcode%>
+                    </td>
+                    </tr>
+                <% }) %>
+            <% } %>
+        </table>
+    </div> 
+    <div>
+        <form style='margin-bottom:40px' action="/quiz" method="get" align="center">
+            <input type="submit" value="Return to Quiz" name="Submit"/>
+        </form> 
+    </div>
+</body>
+<% include components/footer %>
+
+</html>

@@ -1,0 +1,30 @@
+<style type="text/css">
+    body{
+        font-family: 'Open Sans', sans-serif;
+    }
+    footer {
+    background-color: pink;
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    overflow:hidden;
+    text-align: center
+}
+</style>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<footer >
+<div class="fb-like" data-href="https://www.facebook.com/DogFinder/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+</footer>
+</body>

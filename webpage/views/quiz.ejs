@@ -1,0 +1,66 @@
+<html>
+<head>
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+    <style type="text/css">
+        .title{
+            text-align:center;
+            font-family:arial;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            console.log("form");    
+            var x = document.forms["zipform"]["zipcode"].value;
+            var y = document.forms["zipform"]["max_dist"].value;
+            if (x == "" || isNaN(x) || y=="" || isNaN(y)) {
+                alert("Zipcode or Distance invalid");
+                return false;
+            }
+        }
+    </script>
+</head>
+<% include components/header %>
+<body  style= "background-color:white;background-image:url(/pawprints.jpg);">
+<div class="container">
+             <table align="center">      
+            <% questions.forEach((question) => {%>
+                <tr>
+                <tr>
+                <td  colspan="2"> <br/><%= question.question %> </td>
+                </tr>
+                
+                <form action="">
+                    <%question.answers.forEach((answer)=> {%>
+                    <td>
+                    <label>
+                        <input type="radio" checked="checked"
+                               name=<%= question.trait %>value='<%= question.value %>'
+                               onClick="document.getElementById('<%= question.id%>').value='<%= answer.value %> * <%=answer.trait%>'"> <%= answer.txt %><br>
+                        <image src="<%=answer.pic%>" width="200" height="200">
+                        
+                    </label>
+                    
+                    </td>
+                    <% }) %>
+                   
+                </form>
+                </tr>
+                
+                <br/>
+            <% }) %>
+            
+             </table>
+    </div>   
+    
+    <form  style= "margin-bottom: 50px" name="zipform" action="/quizresults" onsubmit="return validateForm()" method="get">
+        Zipcode: <input type='text' name='zipcode' placeholder='Enter Zipcode Here'/> </br>
+        Maximum Distance: <input type='text' name='max_dist' placeholder='Maximum Distance (in miles) here'/></br>
+        <% questions.forEach((question) => {%>
+           <input type = "hidden" name=<%= question.id %> value = "<%= question.answers[question.answers.length-1].value %> * <%=question.answers[question.answers.length-1].trait%>" id=<%= question.id%> />
+        <% }) %>            
+        <input type='submit' value='Submit'/>  
+    </form>
+</body>
+<% include components/footer %>
+
+</html>

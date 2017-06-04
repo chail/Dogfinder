@@ -1,0 +1,55 @@
+<style type="text/css">
+    body{
+        font-family: 'Open Sans', sans-serif;
+    }
+    header{
+        background: pink;
+        padding-top: 10px;
+    }
+    header .form-group{
+        margin-bottom: 0px;
+    }
+    header .btn-header-login{
+        margin-bottom: 15px;
+    }
+    .logo{
+        color: black;
+        text-align: center;
+        font-size: 20px;
+        padding-bottom: 15px;
+        padding: 4px 0;
+    }
+    .welcome-text{
+        color: black;
+        margin: 0;
+        font-size: 20px;
+        padding: 4px 0;
+        padding-bottom: 15px;
+    }
+</style>
+<header >
+    <a href="/">
+        <img src="/dogs.png" alt="dogs" style="width:576px;height:209px;display:block;margin:auto">
+    </a>    
+    <div class="container" align="right">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="welcome-text">
+                    <a href="/userprofiles/<%= loggedInUser %>"><%= loggedInUser %></a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="logo">
+                    Dogfinder
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <form id="logout" action="" method="">
+                        <a href="/logout" class="btn btn-danger" >Logout</a><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

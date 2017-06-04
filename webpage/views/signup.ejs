@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+    <style type="text/css">
+        body{
+            font-family: 'Open Sans', sans-serif;
+        }
+        header{
+            background: pink;
+            padding-top: 10px;
+        }
+        header .form-group{
+            margin-bottom: 0px;
+        }
+        header .btn-header-login{
+            margin-bottom: 15px;
+        }
+        .logo{
+            color: black;
+            margin: 0;
+            font-size: 20px;
+            padding: 4px 0;
+            padding-bottom: 15px;
+        }
+        .signup-box {
+            max-width: 330px;
+            margin: 0 auto;
+        }
+        .signup-box {
+            margin-top: 30px;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // allows alphanumeric, periods, hyphens, and underscores
+            var regexCheck = /^[a-zA-Z0-9._-]+$/;
+            $("#login").submit(function(e) {
+                e.preventDefault();
+                var username = $("#loginUsername").val();
+                var password = $("#loginPassword").val();
+                if (!username || !password || !username.trim() || !password.trim()) {
+                    $("#loginErr").text("Please fill in both username and password.");
+                } else if (!regexCheck.test(username) || !regexCheck.test(password)) {
+                    $("#loginErr").text("Please use only alphanumeric characters, periods, hyphens, and underscores.");
+                } else {
+                    $.post('/checklogin', {username: username, password: password}, function(data) {
+                        // login successful
+                        if (typeof data.redirect == 'string'){
+                            window.location = data.redirect
+                        }
+                    })
+                        .fail(function(xhr) {
+                            // handle error
+                            var response = JSON.parse(xhr.responseText);
+                            var err = response.error;
+                            $("#loginErr").text(err);
+                        });
+                }
+            });
+
+            $("#signup").submit(function(e) {
+                e.preventDefault();
+                var username = $("#signupUsername").val();
+                var password = $("#signupPassword").val();
+                var email = $("#signupEmail").val();
+                // ensures a valid email address (needs more complexity to represent all emails)
+                var emailRegex = /^[a-z0-9._-]+@[a-z_-]+\.[a-z]+$/;
+
+                if (!username || !username.trim() || !password || !password.trim() || !email || !email.trim()) {
+                    $("#signupErr").text("Please fill in all fields (interests not necessary).");
+                } else if (!regexCheck.test(username) || !regexCheck.test(password)) {
+                    $("#signupErr").text("Please use only alphanumeric characters, periods, hyphens, and underscores for username and password.");
+                } else if (!emailRegex.test(email)) {
+                    $("#signupErr").text("Please enter a valid email.");
+                } else {
+                    // validated inputs so now make AJAX call
+                    $.post('/createaccount',
+                        {
+                            username: username.trim(),
+                            password: password.trim(),
+                            email : email.trim()
+                        }, function(data) {
+                            // login successful
+                            if (typeof data.redirect == 'string'){
+                                window.location = data.redirect
+                            }
+                        })
+                        .fail(function(xhr) {
+                            // handle error
+                            var response = JSON.parse(xhr.responseText);
+                            var err = response.error;
+                            $("#signupErr").text(err);
+                        });
+                }
+            });
+        });
+    </script>
+</head>
+<header >
+    <img src="dogs.png" alt="dogs" style="width:576px;height:209px;display:block;margin:auto">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="logo">
+                    Dogfinder
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <input type="text" name="usernameField" class="form-control" placeholder="Username"  id="loginUsername">
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <input type="password" name="passwordField" class="form-control" placeholder="Password" id="loginPassword">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <form id="login" action="" method="">
+                                <input type="submit" value="Login" class="btn btn-default btn-header-login">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header><body style= "background-image:url(/pawprints.jpg)";>
+<p align="right" ><font id="loginErr" color="red"></font></p>
+<div class="signup-box">
+    <h2>New Here? Sign Up!</h2>
+    <form id="signup" action="" method="">
+        <font id="signupErr" color="red"></font>
+        <p>Username: <input type="text" name="usernameField" id="signupUsername" class="form-control strip-html"></p>
+        <p>Password:  <input type="password" name="passwordField" id="signupPassword" class="form-control strip-html"></p>
+        <p>Email:  <input type="text" name="emailField" id="signupEmail" class="form-control strip-html"></p>
+        <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block">
+    </form>
+</div>
+</body>
+<% include components/footer %>
+
+</html>
