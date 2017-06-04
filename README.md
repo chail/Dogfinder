@@ -33,5 +33,7 @@ We structured the project into the following sections:
 - User profiles were implemented, in order to allow users to save the state of their search by saving and managing their favorite dogs. Passwords are hashed before they are stored in order to ensure security. 
 - Validator, an npm package, as well as custom regex checks, were used in order to avoid SQL injections from malicious users. 
 
+## Credits
+Built by Francisco Selame, Jordan Hurwitz, Lucy Chai, and Margaret Nolan. CIS450 databases final project.
 
 [boto]: http://boto3.readthedocs.io/en/latest/guide/quickstart.html#configuration
